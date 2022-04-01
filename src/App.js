@@ -1,5 +1,6 @@
 import { Outlet, Link, Route, Routes } from 'react-router-dom';
 import './App.css';
+import { BeersDetails } from './components/BeerDetails';
 import { Beers } from './components/Beers';
 import { Home } from './components/Home';
 import { NewBeer } from './components/NewBeer';
@@ -12,14 +13,15 @@ function ErrorHandle() {
 function LayoutComponent() {
   return (
     <div>
-      <Link to="/"> ⌂ HOME </Link>
+      <div className='header'>
+        <Link to="/"> ⌂ HOME </Link>
+      </div>
       <div>
         <Outlet />
       </div>
     </div>
   )
 }
-
 
 function App() {
   return (
@@ -31,6 +33,7 @@ function App() {
           <Route path="/beers" element={<Beers />} />
           <Route path="/random-beer" element={<RandomBeer />} />
           <Route path="/new-beer" element={<NewBeer />} />
+          <Route path='/beers/:beerId' element={<BeersDetails />}/>
         </Route>
       </Routes>
     </div>
