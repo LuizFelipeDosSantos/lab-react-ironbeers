@@ -14,4 +14,12 @@
 .header {
   background-color: darkcyan;
   width: 100vw;
+  padding: 4vh;
+}
+
+.header-link {
+  text-decoration: none;
+  color: white;
+  font-weight: bolder;
+  font-size: 4vh;
 }

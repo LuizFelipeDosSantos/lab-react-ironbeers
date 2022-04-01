@@ -1,26 +1,13 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-export function Beers() {
-    const [beersList, setBeersList] = useState([]);
-
-    useEffect(() => {
-        async function fetchBeersList() {
-            const res = await fetch("https://ih-beers-api2.herokuapp.com/beers");
-            const data = await res.json();
-
-            setBeersList(data);
-        }
-
-        fetchBeersList();
-    }, []);
-
+export function Beers( {beersList} ) {
+    
     return (
         <div>
             {beersList.length === 0 ? "🍻Loading..." :
              beersList.map(({ _id, name, tagline, contributed_by, image_url }) => {
                 return (
-                        <div className="flex">
+                        <div className="flex" key={_id}>
                             <div>
                                 <img src={image_url} alt={name} height={150}/>
                             </div>
